@@ -1,0 +1,184 @@
+<!doctype html>
+<html ng-app="ICP2" lang="en" class="h-100">
+<head>
+    <title>ICP 2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body class="d-flex py-5 h-100 align-items-center">
+<div ng-controller="WeatherController" class="container" style="max-width: 720px">
+    <form ng-submit="getWeather()" class="mx-auto my-4 card bg-light">
+        <div class="card-body">
+            <div class="input-group ">
+                <input type="text" aria-label="City" class="form-control" ng-model="location.city"
+                       placeholder="Enter Your City">
+                <select ng-model="location.state" class="custom-select">
+                    <option selected disabled hidden value="">Select Your State</option>
+                    <option ng-repeat="state in states" ng-value="state.abbreviation">
+                        {{state.abbreviation}} - {{state.name}}
+                    </option>
+                </select>
+
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit" ng-disabled="searching">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <p class="alert alert-danger mx-auto" ng-show="error">{{error.description}}</p>
+
+    <div class="alert alert-warning mx-auto" ng-show="matches">
+        <p class="">Do you mean:</p>
+        <ul>
+            <li ng-repeat="match in matches"><a href="#" ng-click="selectMatch(match)">{{match.city}},
+                {{match.state}}</a></li>
+        </ul>
+    </div>
+
+    <div class="card-group" ng-show="forecasts">
+        <div class="card text-center" ng-repeat="forecast in forecasts">
+            <div class="card-header">
+                <small class="text-muted">{{forecast.FCTTIME.civil}}</small>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{forecast.temp.english}}&deg;</h5>
+                <img class="" ng-src="{{forecast.icon_url}}" alt="Card image cap">
+                <p class="card-text">{{forecast.condition}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"
+        integrity="sha384-R0RcY28wXErVrCnTuQi4b/UPpXUXzmUWTl/GEgX55yoegErbQZlFUW12h6JEEsoi"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.min.js"
+        integrity="sha384-sfJtOIjm0m7g26ch3GWQ+5slexk9losdW9ZJai4d4yDRhpYGTXoTN+gw2ygwgBzx"
+        crossorigin="anonymous"></script>
+
+<script>
+	'use strict';
+
+	function transformResponse(response) {
+		const {
+			response: {
+				results: matches = null,
+				error = null
+			} = {},
+			hourly_forecast = []
+		} = angular.fromJson(response);
+		const forecasts = hourly_forecast.slice(0, 5);
+		return {forecasts, matches, error};
+	}
+
+	function _encode({city, state}) {
+		return {
+			city: encodeURIComponent(city),
+			state: encodeURIComponent(state),
+		}
+	}
+
+	function _url(location) {
+		const {city, state} = _encode(location);
+		return `http://api.wunderground.com/api/4bbbc25f4f5946dd/hourly/q/${state}/${city}.json`;
+	}
+
+	const app = angular.module('ICP2', ['ngAnimate']);
+	app.controller('WeatherController', function ($scope, $http) {
+
+		$scope.setSearching = function (searching) {
+			$scope.searching = searching;
+			if (searching) {
+				$scope.forecasts = undefined;
+				$scope.matches = undefined;
+				$scope.error = undefined;
+            }
+		};
+
+		$scope.getWeather = function () {
+			$scope.setSearching(true);
+			$http.get(_url($scope.location), {transformResponse}).then(({data}) => {
+				Object.assign($scope, data);
+				$scope.setSearching(false);
+			}, response => {
+				$scope.error = {description: `An unknown error has occurred.`};
+				$scope.setSearching(false);
+			});
+		};
+
+		$scope.selectMatch = function (match) {
+			$scope.location = match;
+			$scope.getWeather();
+		};
+
+		$scope.states = [
+			{abbreviation: 'AL', name: 'Alabama'},
+			{abbreviation: 'AK', name: 'Alaska'},
+			{abbreviation: 'AZ', name: 'Arizona'},
+			{abbreviation: 'AR', name: 'Arkansas'},
+			{abbreviation: 'CA', name: 'California'},
+			{abbreviation: 'CO', name: 'Colorado'},
+			{abbreviation: 'CT', name: 'Connecticut'},
+			{abbreviation: 'DE', name: 'Delaware'},
+			{abbreviation: 'DC', name: 'District of Columbia'},
+			{abbreviation: 'FL', name: 'Florida'},
+			{abbreviation: 'GA', name: 'Georgia'},
+			{abbreviation: 'HI', name: 'Hawaii'},
+			{abbreviation: 'ID', name: 'Idaho'},
+			{abbreviation: 'IL', name: 'Illinois'},
+			{abbreviation: 'IN', name: 'Indiana'},
+			{abbreviation: 'IA', name: 'Iowa'},
+			{abbreviation: 'KS', name: 'Kansas'},
+			{abbreviation: 'KY', name: 'Kentucky'},
+			{abbreviation: 'LA', name: 'Louisiana'},
+			{abbreviation: 'ME', name: 'Maine'},
+			{abbreviation: 'MD', name: 'Maryland'},
+			{abbreviation: 'MA', name: 'Massachusetts'},
+			{abbreviation: 'MI', name: 'Michigan'},
+			{abbreviation: 'MN', name: 'Minnesota'},
+			{abbreviation: 'MS', name: 'Mississippi'},
+			{abbreviation: 'MO', name: 'Missouri'},
+			{abbreviation: 'MT', name: 'Montana'},
+			{abbreviation: 'NE', name: 'Nebraska'},
+			{abbreviation: 'NV', name: 'Nevada'},
+			{abbreviation: 'NH', name: 'New Hampshire'},
+			{abbreviation: 'NJ', name: 'New Jersey'},
+			{abbreviation: 'NM', name: 'New Mexico'},
+			{abbreviation: 'NY', name: 'New York'},
+			{abbreviation: 'NC', name: 'North Carolina'},
+			{abbreviation: 'ND', name: 'North Dakota'},
+			{abbreviation: 'OH', name: 'Ohio'},
+			{abbreviation: 'OK', name: 'Oklahoma'},
+			{abbreviation: 'OR', name: 'Oregon'},
+			{abbreviation: 'PA', name: 'Pennsylvania'},
+			{abbreviation: 'RI', name: 'Rhode Island'},
+			{abbreviation: 'SC', name: 'South Carolina'},
+			{abbreviation: 'SD', name: 'South Dakota'},
+			{abbreviation: 'TN', name: 'Tennessee'},
+			{abbreviation: 'TX', name: 'Texas'},
+			{abbreviation: 'UT', name: 'Utah'},
+			{abbreviation: 'VT', name: 'Vermont'},
+			{abbreviation: 'VA', name: 'Virginia'},
+			{abbreviation: 'WA', name: 'Washington'},
+			{abbreviation: 'WV', name: 'West Virginia'},
+			{abbreviation: 'WI', name: 'Wisconsin'},
+			{abbreviation: 'WY', name: 'Wyoming'}
+		];
+	});
+</script>
+</body>
+</html>
