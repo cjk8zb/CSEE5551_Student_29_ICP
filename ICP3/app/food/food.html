@@ -1,0 +1,11 @@
+<form ng-submit="findAndSpeak()" class="input-group mb-4">
+    <input type="text" ng-model="term" class="form-control">
+    <div class="input-group-append">
+        <button type="submit" class="btn btn-outline-secondary">Go</button>
+    </div>
+</form>
+
+<ul class="list-group">
+    <li ng-if="calories !== undefined" class="list-group-item">Calories: {{calories}}</li>
+    <li ng-if="weight !== undefined" class="list-group-item">Serving Weight: {{weight}} g</li>
+</ul>
