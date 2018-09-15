@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Translate App</string>
+    <string name="title_activity_translate">TranslateActivity</string>
+    <string name="edit_text_hint">Enter the text to convert…</string>
+    <string name="convert_btn_title">Convert</string>
+    <string name="username_email_hint">Username/Email</string>
+    <string name="password_hint">Password</string>
+    <string name="btn_login">Sign in</string>
+    <string name="login_header">Login</string>
+    <string name="username_password_text">Please enter valid username and password</string>
+    <string name="action_logout">Logout</string>
+</resources>
