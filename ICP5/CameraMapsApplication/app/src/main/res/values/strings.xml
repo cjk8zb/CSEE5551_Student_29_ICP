@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CameraMapsApplication</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyATGdCyVVRTdb8iVscu_ZqRhW_LTFlvynU</string>
+    <string name="title_activity_my_maps">Map</string>
+    <string name="take_photo">Take photo</string>
+    <string name="display_location">Display Location</string>
+    <string name="home">Home</string>
+    <string name="photo">Photo</string>
+</resources>
