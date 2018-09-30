@@ -4,9 +4,11 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.appbar.AppBarLayout;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +31,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class TranslateActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -113,7 +116,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
             Request request = new Request.Builder().url(getURL).build();
             client.newCall(request).enqueue(new Callback() {
                 @Override
-                public void onFailure(Call call, IOException e) {
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
                     Log.e("okHttp", "Request Failure", e);
                     System.out.println(e.getMessage());
                 }
@@ -121,18 +124,14 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     final JSONObject jsonResult;
-                    final String result = response.body().string();
+                    final ResponseBody body = response.body();
+                    final String result = body != null ? body.string() : "";
                     try {
                         jsonResult = new JSONObject(result);
                         JSONArray convertedTextArray = jsonResult.getJSONArray("text");
                         final String convertedText = convertedTextArray.get(0).toString();
                         Log.d("okHttp", jsonResult.toString());
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                outputTextView.setText(convertedText);
-                            }
-                        });
+                        runOnUiThread(() -> outputTextView.setText(convertedText));
                     } catch (JSONException e) {
                         Log.e("okHttp", "Response Error", e);
                         e.printStackTrace();
@@ -158,7 +157,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
     }
 
-    public void hideKeyboard(View view) {
+    private void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null) {
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
