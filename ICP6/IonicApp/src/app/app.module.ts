@@ -12,6 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {RegisterPage} from "../pages/register/register";
+import {PasswordMatchValidatorDirective} from "../directives/password-match-validator/password-match-validator";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {RegisterPage} from "../pages/register/register";
     HomePage,
     LoginPage,
     RegisterPage,
-    TabsPage
+    TabsPage,
+    PasswordMatchValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import {RegisterPage} from "../pages/register/register";
   providers: [
     StatusBar,
     SplashScreen,
+    PasswordMatchValidatorDirective,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

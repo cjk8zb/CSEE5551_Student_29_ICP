@@ -40,12 +40,11 @@ export class RegisterPage {
       localStorage.setItem('currentUser', JSON.stringify(this.user));
       this.navCtrl.setRoot(TabsPage);
     } else {
-
+      console.log('registrationForm.errors', registrationForm.errors);
       for (let key in registrationForm.controls) {
         let control = registrationForm.controls[key];
-        console.log('key', key, 'control', control);
         if (control.errors) {
-          console.log('errors', registrationForm.errors);
+          console.log('key', key, 'control', control, 'errors', control.errors);
         }
       }
     }
