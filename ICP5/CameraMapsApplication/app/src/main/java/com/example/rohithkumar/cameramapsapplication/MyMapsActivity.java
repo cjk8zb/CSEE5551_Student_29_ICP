@@ -74,7 +74,7 @@ public class MyMapsActivity extends AppCompatActivity {
 
             CameraPosition position = new CameraPosition.Builder()
                     .target(mCurrentLocation)
-                    .zoom(10)
+                    .zoom(16)
                     .build();
             CameraUpdate update = CameraUpdateFactory.newCameraPosition(position);
             mMap.animateCamera(update);
