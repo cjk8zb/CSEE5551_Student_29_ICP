@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title></title>
+
+  <link rel="manifest" href="manifest.json">
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>-->
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <script src="lib/ionic-native/ionic.native.min.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/firebase/firebase.js"></script>
+  <script src="lib/angularfire/dist/angularfire.min.js"></script>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDB_XkrQeyuT1J5S4OTFYODgdQnInw1eEw",
+      authDomain: "my-project-1537125901149.firebaseapp.com",
+      databaseURL: "https://my-project-1537125901149.firebaseio.com",
+      projectId: "my-project-1537125901149",
+      storageBucket: "my-project-1537125901149.appspot.com",
+      messagingSenderId: "844253866537"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+</head>
+<body ng-app="starter">
+
+<ion-pane>
+  <ion-nav-bar class="bar-stable"></ion-nav-bar>
+  <ion-nav-view></ion-nav-view>
+</ion-pane>
+</body>
+</html>
