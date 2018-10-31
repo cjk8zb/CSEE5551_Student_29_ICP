@@ -1,0 +1,16 @@
+<header class="navbar sticky-top navbar-dark bg-dark" *ngIf="isLoggedIn">
+  <span class="navbar-brand mb-0 h1">ICP 9</span>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</header>
+
+<main class="container flex-grow-1">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="navbar navbar-light bg-light" *ngIf="isLoggedIn">
+  <p>Cameron Knight - cjk8zb@mail.umkc.edu</p>
+</footer>

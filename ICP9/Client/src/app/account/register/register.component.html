@@ -1,0 +1,88 @@
+<form (ngSubmit)="submitUser()" #userForm="ngForm">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="email" class="form-control" id="username" name="username" [(ngModel)]="model.username"
+           #username="ngModel" required>
+    <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+      Username is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="model.password"
+           #password="ngModel" required>
+    <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+      Password is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword" required>Confirm Password</label>
+    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+           [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel">
+    <div [hidden]="confirmPassword.valid || confirmPassword.pristine" class="alert alert-danger">
+      Confirm Password is required
+    </div>
+  </div>
+  <hr>
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="model.firstName"
+           #firstName="ngModel">
+    <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+      First Name is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="model.lastName"
+           #lastName="ngModel">
+    <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+      Last Name is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="model.email" #email="ngModel">
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      Email is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" class="form-control" id="city" name="city" [(ngModel)]="model.city" #city="ngModel">
+    <div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+      City is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="state">State</label>
+    <input type="text" class="form-control" id="state" name="state" [(ngModel)]="model.state" #state="ngModel">
+    <div [hidden]="state.valid || state.pristine" class="alert alert-danger">
+      State is required
+    </div>
+  </div>
+  <hr>
+  <div class="form-group">
+    <label for="university">University</label>
+    <input type="text" class="form-control" id="university" name="university" [(ngModel)]="model.university"
+           #university="ngModel">
+    <div [hidden]="university.valid || university.pristine" class="alert alert-danger">
+      University is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="degree">Degree</label>
+    <input type="text" class="form-control" id="degree" name="degree" [(ngModel)]="model.degree" #degree="ngModel">
+    <div [hidden]="degree.valid || degree.pristine" class="alert alert-danger">
+      Degree is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="major">Major</label>
+    <input type="text" class="form-control" id="major" name="major" [(ngModel)]="model.major" #major="ngModel">
+    <div [hidden]="major.valid || major.pristine" class="alert alert-danger">
+      Major is required
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid">Register</button>
+</form>

@@ -1,0 +1,28 @@
+{
+  "name": "icp9",
+  "version": "1.0.0",
+  "description": "ICP 9 - MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjk8zb/CSEE5551_Student_29_ICP.git"
+  },
+  "author": "Cameron Knight <cjk8zb@mail.umkc.edu>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjk8zb/CSEE5551_Student_29_ICP/issues"
+  },
+  "homepage": "https://github.com/cjk8zb/CSEE5551_Student_29_ICP#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongodb": "^3.1.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/mongodb": "^3.1.14"
+  }
+}

@@ -1,0 +1,30 @@
+<form (ngSubmit)="searchUsers()" #searchForm="ngForm" class="jumbotron">
+  <h1>Search Users</h1>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="email" class="form-control" id="name" name="name" [(ngModel)]="model.name" #username="ngModel">
+  </div>
+  <div class="form-group">
+    <label for="university">University</label>
+    <input type="text" class="form-control" id="university" name="university" [(ngModel)]="model.university"
+           #password="ngModel">
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table *ngIf="results" class="table">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>University</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of results">
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.education.university}}</td>
+  </tr>
+  </tbody>
+</table>
