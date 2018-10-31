@@ -1,0 +1,31 @@
+{
+  "name": "icp8",
+  "version": "1.0.0",
+  "description": "ICP 8 - Node.js client / server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjk8zb/CSEE5551_Student_29_ICP.git"
+  },
+  "author": "Cameron Knight <cjk8zb@mail.umkc.edu>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjk8zb/CSEE5551_Student_29_ICP/issues"
+  },
+  "homepage": "https://github.com/cjk8zb/CSEE5551_Student_29_ICP#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "node-fetch": "^2.2.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/request": "^2.48.0",
+    "@types/request-promise-native": "^1.0.15"
+  }
+}
