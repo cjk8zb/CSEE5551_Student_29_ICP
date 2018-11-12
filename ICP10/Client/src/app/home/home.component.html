@@ -1,0 +1,156 @@
+<div class="jumbotron">
+  <h1>Airplanes</h1>
+
+  <form [formGroup]="filterForm" (ngSubmit)="getAirplanes()" class="needs-validation">
+
+    <fieldset>
+      <legend>Minimum</legend>
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="minimumLatitude">Latitude</label>
+          <input type="text" class="form-control" formControlName="minimumLatitude" id="minimumLatitude">
+          <div *ngIf="minimumLatitude.errors" class="error">
+            <div *ngIf="minimumLatitude.errors.required">
+              Minimum Latitude is required.
+            </div>
+            <div *ngIf="minimumLatitude.errors.max">
+              Minimum Latitude must be less than {{minimumLatitude.errors.max.max}}.
+            </div>
+            <div *ngIf="minimumLatitude.errors.min">
+              Minimum Latitude must be greater than {{minimumLatitude.errors.min.max}}.
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group col">
+          <label for="minimumLongitude">Longitude</label>
+          <input type="text" class="form-control" formControlName="minimumLongitude" id="minimumLongitude">
+          <div *ngIf="minimumLongitude.errors" class="error">
+            <div *ngIf="minimumLongitude.errors.required">
+              Minimum Longitude is required.
+            </div>
+            <div *ngIf="minimumLongitude.errors.max">
+              Minimum Longitude must be less than {{minimumLongitude.errors.max.max}}.
+            </div>
+            <div *ngIf="minimumLongitude.errors.min">
+              Minimum Longitude must be greater than {{minimumLongitude.errors.min.max}}.
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Maximum</legend>
+      <div class="form-row">
+        <div class="form-group col">
+
+          <label for="maximumLatitude">Latitude</label>
+          <input type="text" class="form-control" formControlName="maximumLatitude" id="maximumLatitude">
+          <div *ngIf="maximumLatitude.errors" class="error">
+            <div *ngIf="maximumLatitude.errors.required">
+              Maximum Latitude is required.
+            </div>
+            <div *ngIf="maximumLatitude.errors.max">
+              Maximum Latitude must be less than {{maximumLatitude.errors.max.max}}.
+            </div>
+            <div *ngIf="maximumLatitude.errors.min">
+              MaximumLatitude must be greater than {{maximumLatitude.errors.min.max}}.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col">
+          <label for="maximumLongitude">Longitude</label>
+          <input type="text" class="form-control" formControlName="maximumLongitude" id="maximumLongitude">
+          <div *ngIf="maximumLongitude.errors" class="error">
+            <div *ngIf="maximumLongitude.errors.required">
+              Maximum Longitude is required.
+            </div>
+            <div *ngIf="maximumLongitude.errors.max">
+              Maximum Longitude must be less than {{maximumLongitude.errors.max.max}}.
+            </div>
+            <div *ngIf="maximumLongitude.errors.min">
+              Maximum Longitude must be greater than {{maximumLongitude.errors.min.max}}.
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Get Airplanes</button>
+
+  </form>
+
+</div>
+
+
+<div class="card-columns">
+  <div *ngFor="let airplane of airplanes; let i = index" class="card">
+    <div class="card-header">Airplane {{ airplane.identifier | uppercase }}</div>
+    <div class="card-body">
+      <dl>
+        <div *ngIf="airplane.callSign">
+          <dt>Call Sign</dt>
+          <dd>{{ airplane.callSign }}</dd>
+        </div>
+        <dt>Country</dt>
+        <dd>{{ airplane.countryName }}</dd>
+        <div *ngIf="airplane.lastPositionUpdate">
+          <dt>Last Position Update</dt>
+          <dd>{{ airplane.lastPositionUpdate | date : 'short' }}</dd>
+        </div>
+        <dt>Last Update</dt>
+        <dd>{{ airplane.lastUpdate | date : 'short' }}</dd>
+        <div *ngIf="airplane.longitude">
+          <dt>Longitude</dt>
+          <dd>{{ airplane.longitude }}</dd>
+        </div>
+        <div *ngIf="airplane.latitude">
+          <dt>Latitude</dt>
+          <dd>{{ airplane.latitude }}</dd>
+        </div>
+        <div *ngIf="airplane.barometricAltitude">
+          <dt>Barometric Altitude</dt>
+          <dd>{{ airplane.barometricAltitude }}</dd>
+        </div>
+        <dt>On Ground</dt>
+        <dd>{{ airplane.isOnGround }}</dd>
+        <div *ngIf="airplane.velocity">
+          <dt>Velocity</dt>
+          <dd>{{ airplane.velocity }}</dd>
+        </div>
+        <div *ngIf="airplane.trueTrack">
+          <dt>Track</dt>
+          <dd>{{ airplane.trueTrack }}</dd>
+        </div>
+        <div *ngIf="airplane.verticalRate">
+          <dt>Vertical Rate</dt>
+          <dd>{{ airplane.verticalRate }}</dd>
+        </div>
+        <div *ngIf="airplane.sensors">
+          <dt>Sensors</dt>
+          <dd>{{ airplane.sensors }}</dd>
+        </div>
+        <div *ngIf="airplane.geometricAltitude">
+          <dt>Geometric Altitude</dt>
+          <dd>{{ airplane.geometricAltitude }}</dd>
+        </div>
+        <div *ngIf="airplane.squawk">
+          <dt>Squawk</dt>
+          <dd>{{ airplane.squawk }}</dd>
+        </div>
+        <dt>SPI</dt>
+        <dd>{{ airplane.isSpecialPurposeIndicator }}</dd>
+        <dt>Source</dt>
+        <dd>{{ airplane.source }}</dd>
+        <dt>Time</dt>
+        <dd>{{ airplane.time | date : 'short' }}</dd>
+      </dl>
+
+      <button (click)="getAirplane(i)" class="btn btn-primary">Refresh</button>
+
+    </div>
+  </div>
+</div>
