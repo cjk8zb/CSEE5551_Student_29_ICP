@@ -66,7 +66,7 @@ class Server {
 
 			const user = {username, password};
 			return this.users.findOne(user)
-				.then(value => res.json(value))
+				.then(value => value ? res.json(value) : res.status(401).send('Invalid username or password.'))
 				.catch(error => res.status(500).send(error));
 		});
 

@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bab08361-55ea-4052-9389-26bcc976d698" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Client/src/app/account/login/login.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/app/account/login/login.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/app/account/login/login.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/app/account/login/login.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/app/account/register/register.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/app/account/register/register.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/app/account/register/register.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Client/src/app/account/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ICP8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ICP8/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ICP8/Client/src/app/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../ICP8/Client/src/app/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ICP8/Client/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ICP8/Client/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ICP8/Client/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../ICP8/Client/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ICP8/Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ICP8/Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ICP8/Server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ICP8/Server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/app/account/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/app/account/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,12 +25,12 @@
     <session id="-1063050775">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -48,14 +49,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1290" />
+          <entry key="js" value="1311" />
           <entry key="json" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="11" />
-          <entry key="JavaScript" value="1290" />
+          <entry key="JavaScript" value="1311" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -67,25 +68,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2.0/api.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/@types/mongodb/index.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19725">
-              <caret line="1339" column="17" selection-start-line="1339" selection-start-column="17" selection-end-line="1339" selection-end-column="17" />
+            <state relative-caret-position="520">
+              <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
             </state>
           </provider>
         </entry>
@@ -134,7 +121,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -145,7 +132,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -162,6 +148,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -216,22 +203,24 @@
       <workItem from="1540841411575" duration="9217000" />
       <workItem from="1540935261327" duration="690000" />
       <workItem from="1540952780766" duration="82000" />
+      <workItem from="1541981306228" duration="1148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13650000" />
+    <option name="totallyTimeSpent" value="14798000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="720" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49475065" visible="true" weight="0.16490486" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49312714" weight="0.16759333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.5052493" side_tool="true" visible="true" weight="0.16490486" />
+      <window_info id="npm" order="2" sideWeight="0.50687283" side_tool="true" weight="0.16759333" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996997" weight="0.22505307" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4996997" weight="0.23763955" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -276,13 +265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@types/mongodb/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19725">
@@ -292,6 +274,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2.0/api.js">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

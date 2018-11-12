@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UsersService} from '../users.service';
 import {User} from '../user';
 
@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   results: User[];
 
-  constructor(private users: UsersService) { }
+  constructor(private users: UsersService) {
+  }
 
   ngOnInit() {
   }
