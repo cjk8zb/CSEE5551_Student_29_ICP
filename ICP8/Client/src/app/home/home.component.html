@@ -7,32 +7,33 @@
       <legend>Minimum</legend>
       <div class="form-row">
         <div class="form-group col">
-          <label for="minimumLatitude">
-            Latitude
-          </label>
+          <label for="minimumLatitude">Latitude</label>
           <input type="text" class="form-control" formControlName="minimumLatitude" id="minimumLatitude">
           <div *ngIf="minimumLatitude.errors" class="error">
-            <div *ngIf="minimumLatitude.errors.required">Minimum Latitude is required.</div>
-            <div *ngIf="minimumLatitude.errors.max">Minimum Latitude must be less than
-              {{minimumLatitude.errors.max.max}}.
+            <div *ngIf="minimumLatitude.errors.required">
+              Minimum Latitude is required.
             </div>
-            <div *ngIf="minimumLatitude.errors.min">Minimum Latitude must be greater than
-              {{minimumLatitude.errors.min.max}}.
+            <div *ngIf="minimumLatitude.errors.max">
+              Minimum Latitude must be less than {{minimumLatitude.errors.max.max}}.
+            </div>
+            <div *ngIf="minimumLatitude.errors.min">
+              Minimum Latitude must be greater than {{minimumLatitude.errors.min.max}}.
             </div>
           </div>
 
         </div>
         <div class="form-group col">
-          <label for="minimumLongitude">
-            Longitude</label>
+          <label for="minimumLongitude">Longitude</label>
           <input type="text" class="form-control" formControlName="minimumLongitude" id="minimumLongitude">
           <div *ngIf="minimumLongitude.errors" class="error">
-            <div *ngIf="minimumLongitude.errors.required">Minimum Longitude is required.</div>
-            <div *ngIf="minimumLongitude.errors.max">Minimum Longitude must be less than
-              {{minimumLongitude.errors.max.max}}.
+            <div *ngIf="minimumLongitude.errors.required">
+              Minimum Longitude is required.
             </div>
-            <div *ngIf="minimumLongitude.errors.min">Minimum Longitude must be greater than
-              {{minimumLongitude.errors.min.max}}.
+            <div *ngIf="minimumLongitude.errors.max">
+              Minimum Longitude must be less than {{minimumLongitude.errors.max.max}}.
+            </div>
+            <div *ngIf="minimumLongitude.errors.min">
+              Minimum Longitude must be greater than {{minimumLongitude.errors.min.max}}.
             </div>
           </div>
         </div>
@@ -45,31 +46,33 @@
       <div class="form-row">
         <div class="form-group col">
 
-          <label for="maximumLatitude">
-            Latitude</label>
+          <label for="maximumLatitude">Latitude</label>
           <input type="text" class="form-control" formControlName="maximumLatitude" id="maximumLatitude">
           <div *ngIf="maximumLatitude.errors" class="error">
-            <div *ngIf="maximumLatitude.errors.required">Maximum Latitude is required.</div>
-            <div *ngIf="maximumLatitude.errors.max">Maximum Latitude must be less than
-              {{maximumLatitude.errors.max.max}}.
+            <div *ngIf="maximumLatitude.errors.required">
+              Maximum Latitude is required.
             </div>
-            <div *ngIf="maximumLatitude.errors.min">MaximumLatitude must be greater than
-              {{maximumLatitude.errors.min.max}}.
+            <div *ngIf="maximumLatitude.errors.max">
+              Maximum Latitude must be less than {{maximumLatitude.errors.max.max}}.
+            </div>
+            <div *ngIf="maximumLatitude.errors.min">
+              MaximumLatitude must be greater than {{maximumLatitude.errors.min.max}}.
             </div>
           </div>
         </div>
 
         <div class="form-group col">
-          <label for="maximumLongitude">
-            Longitude</label>
+          <label for="maximumLongitude">Longitude</label>
           <input type="text" class="form-control" formControlName="maximumLongitude" id="maximumLongitude">
           <div *ngIf="maximumLongitude.errors" class="error">
-            <div *ngIf="maximumLongitude.errors.required">Maximum Longitude is required.</div>
-            <div *ngIf="maximumLongitude.errors.max">Maximum Longitude must be less than
-              {{maximumLongitude.errors.max.max}}.
+            <div *ngIf="maximumLongitude.errors.required">
+              Maximum Longitude is required.
             </div>
-            <div *ngIf="maximumLongitude.errors.min">Maximum Longitude must be greater than
-              {{maximumLongitude.errors.min.max}}.
+            <div *ngIf="maximumLongitude.errors.max">
+              Maximum Longitude must be less than {{maximumLongitude.errors.max.max}}.
+            </div>
+            <div *ngIf="maximumLongitude.errors.min">
+              Maximum Longitude must be greater than {{maximumLongitude.errors.min.max}}.
             </div>
           </div>
         </div>
@@ -81,27 +84,7 @@
   </form>
 
 </div>
-<!--
-  identifier: string;
-  callSign?: string;
-  countryName: string;
-  lastPositionUpdate?: number;
-  lastUpdate: number;
-  longitude?: number;
-  latitude?: number;
-  barometricAltitude?: number;
-  isOnGround: boolean;
-  velocity?: number;
-  trueTrack?: number;
-  verticalRate?: number;
-  sensors?: number[];
-  geometricAltitude?: number;
-  squawk?: string;
-  isSpecialPurposeIndicator: boolean;
-  source: string;
-  time: number;
 
--->
 
 <div class="card-columns">
   <div *ngFor="let airplane of airplanes; let i = index" class="card">

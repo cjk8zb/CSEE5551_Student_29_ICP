@@ -26,16 +26,16 @@ export class ApiService {
         maximumLatitude: maximum.latitude,
         maximumLongitude: maximum.longitude
       }
-    }).pipe(map(fixDates));
+    }).pipe(map(timestampToDate));
   }
 
   getAirplane(identifier: string): Observable<Airplane[]> {
-    return this.http.get<Airplane[]>(`http://localhost:8081/airplanes/${identifier}`).pipe(map(fixDates));
+    return this.http.get<Airplane[]>(`http://localhost:8081/airplanes/${identifier}`).pipe(map(timestampToDate));
   }
 
 }
 
-function fixDates(airplanes: Airplane[]): Airplane[] {
+function timestampToDate(airplanes: Airplane[]): Airplane[] {
   return airplanes.map(airplane => {
     if (airplane.lastPositionUpdate && typeof airplane.lastPositionUpdate === 'number') {
       airplane.lastPositionUpdate = new Date(airplane.lastPositionUpdate * 1000);

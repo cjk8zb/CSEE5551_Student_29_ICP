@@ -59,7 +59,6 @@ export class HomeComponent implements OnInit {
       this.airplanes = airplanes;
       console.log(this.airplanes);
     });
-    // return this.http.get('http://localhost:8081/airplanes');
   }
 
   getAirplane(index: number) {
